@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "80120875374",
+    "project_id": "onesms-65cbe",
+    "storage_bucket": "onesms-65cbe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:80120875374:android:febd159cd7f841b5e1997f",
+        "android_client_info": {
+          "package_name": "com.example.oneusesms"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "80120875374-bbrm6a1t04tkdccdtbuv3903kpqsno8n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAR1S2S0KZq8GiQ8rffGmMutfdJ27dACIo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "80120875374-bbrm6a1t04tkdccdtbuv3903kpqsno8n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

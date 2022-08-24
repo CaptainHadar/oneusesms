@@ -1,0 +1,73 @@
+ [
+  {
+    "imageLink":"https://imgur.com/x46dlIO.png",
+    "name":"Alex Robin",
+    "reviews":"57",
+	"rating":"3",
+	"specialty" : "Cardiology"
+  },
+  {
+    "imageLink":"https://imgur.com/IRtxJ7H.png",
+    "name":"Tiffany Cordova",
+    "reviews":"36",
+	"rating":"4",
+	"specialty" : "Neurology"
+  },
+  {
+    "imageLink":"https://imgur.com/x46dlIO.png",
+    "name":"Bertha Parrish",
+    "reviews":"67",
+	"rating":"5",
+	"specialty" : "Orthopedy"
+  },
+  {
+    "imageLink":"https://imgur.com/6oOly5f.png",
+    "name":"Mert Mathews",
+    "reviews":"97",
+	"rating":"5",
+	"specialty" : "Orthopedy"
+  },
+  {
+    "imageLink":"https://imgur.com/IRtxJ7H.png",
+    "name":"Anthony Wilder",
+    "reviews":"84",
+	"rating":"3",
+	"specialty" : "Neurology"
+  },
+  {
+    "imageLink":"https://imgur.com/6oOly5f.png",
+    "name":"Cydney Dowling",
+    "reviews":"74",
+	"rating":"3",
+	"specialty" : "Cardiology"
+  },
+  {
+    "imageLink":"https://imgur.com/x46dlIO.png",
+    "name":"Celia Craft",
+    "reviews":"23",
+	"rating":"1",
+	"specialty" : "Cardiology"
+  },
+  {
+    "imageLink":"https://imgur.com/IRtxJ7H.png",
+    "name":"Adrian Sloan",
+    "reviews":"65",
+	"rating":"4",
+	"specialty" : "Neurology"
+  },
+  {
+    "imageLink":"https://imgur.com/x46dlIO.png",
+    "name":"Layton Flower",
+    "reviews":"1",
+	"rating":"3",
+	"specialty" : "Cardiology"
+  },
+  {
+    "imageLink":"https://imgur.com/6oOly5f.png",
+    "name":"Cadi Talley",
+    "reviews":"125",
+	"rating":"4",
+	"specialty" : "Neurology"
+  }
+
+]
