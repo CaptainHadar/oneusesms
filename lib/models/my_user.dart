@@ -1,4 +1,4 @@
-class Users {
+class MyUser{
   final String firstName;
   final String lastName;
   final String phoneNumber;
@@ -8,7 +8,7 @@ class Users {
   final String foundApp;
   final String currentPermission;
 
-  const Users({
+  const MyUser({
     required this.firstName,
     required this.lastName,
     required this.phoneNumber,
@@ -19,7 +19,7 @@ class Users {
      this.currentPermission = '0',
   });
 
-    static Users fromJson(json) => Users(
+    static MyUser fromJson(json) => MyUser(
     firstName: json['firstName'],
     lastName: json['lastName'],
     phoneNumber: json['phoneNumber'],

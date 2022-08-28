@@ -6,8 +6,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'Doctor.dart';
-import 'main.dart';
+import '../models/doctor.dart';
+import '../screens/main.dart';
+import '../widgets/my_container.dart';
 
 class databaseusage extends StatefulWidget {
   final String buttonStatus;
@@ -32,7 +33,7 @@ class _databaseusageState extends State<databaseusage> {
           if ((doctor.specialty == widget.buttonStatus ||
                   widget.buttonStatus == 'All') &&
               doctor.name.contains(widget.searchField)) {
-            return NewContainer(
+            return MyContainer(
             dctr: doctor,
             fun: widget.fun,
             deleteFun: widget.deleteFun,
@@ -49,7 +50,7 @@ class _databaseusageState extends State<databaseusage> {
      // String data = await rootBundle.loadString('assets/doctorList.json');
      // final body = json.decode(data);
      final doc = await FirebaseFirestore.instance
-         .collection("Doctors").get();
+         .collection("doctors").get();
     // return body.map<Doctor>(Doctor.fromJson).toList();
      return doc.docs.map<Doctor>(Doctor.fromJson).toList();
    }

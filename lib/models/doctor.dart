@@ -8,7 +8,7 @@ class Doctor {
   final List<dynamic> hoursOfDays;
 
   const Doctor({
-   required this.imageLink,
+    required this.imageLink,
     required this.name,
     required this.reviews,
     required this.rating,
@@ -17,17 +17,15 @@ class Doctor {
     required this.hoursOfDays,
   });
 
-
-static Doctor fromJson(json) => Doctor(
-  imageLink: json['imageLink'],
-  name: json['name'],
-  rating: json['rating'],
-  reviews: json['reviews'],
-  specialty: json['specialty'],
-  uid: json['uid'],
-  hoursOfDays: json['hoursOfDays'],
-);
-
+  static Doctor fromJson(json) => Doctor(
+        imageLink: json['imageLink'],
+        name: json['name'],
+        rating: json['rating'],
+        reviews: json['reviews'],
+        specialty: json['specialty'],
+        uid: json['uid'],
+        hoursOfDays: json['hoursOfDays'],
+      );
 
   Map<String, dynamic> toJSON() {
     return <String, dynamic>{
@@ -40,5 +38,4 @@ static Doctor fromJson(json) => Doctor(
       'hoursOfDays': hoursOfDays.toList(growable: false),
     };
   }
-
 }

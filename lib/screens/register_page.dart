@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:oneusesms/ListViewTile.dart';
-import 'package:oneusesms/User.dart';
+import 'package:oneusesms/widgets/listview_tile.dart';
+import 'package:oneusesms/models/my_user.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+
+import 'login_pages.dart';
 
 
 class registerPage extends StatefulWidget {
@@ -105,8 +107,8 @@ class _registerPageState extends State<registerPage> {
   }
 
   Future sendInfoToDB () async {
-    Users usr = Users(firstName: firstName.text, lastName: lastName.text, phoneNumber: widget.phoneNumber, city: city.text, gender: current, foundApp: dropdownValue, uid: widget.uid);
-    final currentUser = FirebaseFirestore.instance.collection("Users").doc(widget.uid);
+    MyUser usr = MyUser(firstName: firstName.text, lastName: lastName.text, phoneNumber: widget.phoneNumber, city: city.text, gender: current, foundApp: dropdownValue, uid: widget.uid);
+    final currentUser = FirebaseFirestore.instance.collection("users").doc(widget.uid);
     final json = usr.toJSON();
     currentUser.set(json);
 
@@ -143,5 +145,46 @@ class registerForm extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class customPage extends StatefulWidget {
+  const customPage({Key? key}) : super(key: key);
+
+  @override
+  State<customPage> createState() => _customPageState();
+}
+
+class _customPageState extends State<customPage> {
+  int isLogin = 0;
+  String phoneNumber = '';
+
+  @override
+  Widget build(BuildContext context) {
+    if (isLogin == 0) {
+      return (smsPage(
+        onChange: toggle,
+      ));
+    } else {
+      return (enterVerifyCode(
+        phone: phoneNumber,
+        moveRoute: setPageCount,
+      ));
+    }
+  }
+
+  void setPageCount(int currentPageNum) {
+    setState(() {
+      isLogin = currentPageNum;
+    });
+  }
+
+  void toggle(String currentNumber) {
+    setState(() {
+      if (currentNumber.isNotEmpty) {
+        phoneNumber = currentNumber;
+        isLogin++;
+      }
+    });
   }
 }
