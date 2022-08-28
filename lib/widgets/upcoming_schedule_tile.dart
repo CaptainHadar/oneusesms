@@ -12,7 +12,7 @@ class _UpcommingScheduleTileState extends State<UpcommingScheduleTile> {
     return Row(
       children: [
         SizedBox(width: 15),
-        UpcommingScheduleContainer(
+        UpcomingScheduleContainer(
           date: "📅 Sun - May 10, 1:00pm - 2:00pm",
           imgUrl: "https://imgur.com/1CVohyf.png",
           name: "Dr. Shilgiaoo Kashti",
@@ -45,18 +45,18 @@ class _UpcommingScheduleTileState extends State<UpcommingScheduleTile> {
     );
   }
 }
-class UpcommingScheduleContainer extends StatefulWidget{
+class UpcomingScheduleContainer extends StatefulWidget{
   String name;
   String practice;
   String imgUrl;
   String date;
 
-  UpcommingScheduleContainer({Key? key, required this.name, required this.practice, required this.date, required this.imgUrl}) : super(key: key);
+  UpcomingScheduleContainer({Key? key, required this.name, required this.practice, required this.date, required this.imgUrl}) : super(key: key);
   @override
-  State<UpcommingScheduleContainer> createState() => _UpcommingScheduleContainerState();
+  State<UpcomingScheduleContainer> createState() => _UpcomingScheduleContainerState();
 }
 
-class _UpcommingScheduleContainerState extends State<UpcommingScheduleContainer> {
+class _UpcomingScheduleContainerState extends State<UpcomingScheduleContainer> {
   @override
   Widget build(BuildContext context) {
     return Container(

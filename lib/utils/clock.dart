@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class timeRows extends StatefulWidget{
+class TimeRows extends StatefulWidget{
   bool deleteButton;
   final Function fun;
   TimeOfDay firstTime;
@@ -12,11 +12,11 @@ class timeRows extends StatefulWidget{
     return "${firstTime.hour.toString().padLeft(2,"0")}:${firstTime.minute.toString().padLeft(2,"0")} - ${secondTime.hour.toString().padLeft(2,"0")}:${secondTime.minute.toString().padLeft(2,"0")}";
   }
 
-  timeRows({Key? key, this.deleteButton = false, required this.fun, required this.firstTime, required this.secondTime, required this.placeInList}) : super(key: key);
-  State<timeRows> createState() => _timeRowsState();
+  TimeRows({Key? key, this.deleteButton = false, required this.fun, required this.firstTime, required this.secondTime, required this.placeInList}) : super(key: key);
+  State<TimeRows> createState() => _TimeRowsState();
 }
 
-class _timeRowsState extends State<timeRows> {
+class _TimeRowsState extends State<TimeRows> {
   @override
   Widget build(BuildContext context) {
     return Container(

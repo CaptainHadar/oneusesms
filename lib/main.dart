@@ -2,27 +2,27 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:oneusesms/models/doctor.dart';
-import 'package:oneusesms/screens/register_page.dart';
+import 'package:oneusesms/screens/register.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:oneusesms/models/my_user.dart';
-import 'admin_pages.dart';
-import 'home_page.dart';
+import 'screens/admin.dart';
+import 'screens/home.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 
-  runApp(MaterialApp(home: customUserPage()));
+  runApp(MaterialApp(home: CustomUserScreen()));
 }
 
-class customUserPage extends StatefulWidget {
-  const customUserPage({Key? key}) : super(key: key);
+class CustomUserScreen extends StatefulWidget {
+  const CustomUserScreen({Key? key}) : super(key: key);
 
   @override
-  State<customUserPage> createState() => _customUserPageState();
+  State<CustomUserScreen> createState() => _CustomUserScreenState();
 }
 
-class _customUserPageState extends State<customUserPage> {
+class _CustomUserScreenState extends State<CustomUserScreen> {
   bool isAddingDoctor = false;
   Doctor? dctr;
 
@@ -72,20 +72,20 @@ class _customUserPageState extends State<customUserPage> {
             builder: (context, snapshot1) {
               if (snapshot1.hasData) {
                 if ((snapshot1.data as MyUser).currentPermission == '0') {
-                  return (MyHomePage(
+                  return (MyHomeScreen(
                     usr: snapshot1.data as MyUser,
                   ));
                 } else {
                   if (!isAddingDoctor) {
                     dctr = null;
-                    return (adminPage(
+                    return (AdminScreen(
                         currentAdmin: (snapshot1.data as MyUser),
                         fun: addDoctor,
                         editFun: editDoctor,
                     deleteFun: deleteDoctor,));
                   }
                   else {
-                    return (addDoctorPage(
+                    return (AddDoctorScreen(
                       currentAdmin: (snapshot1.data as MyUser),
                       fun: addDoctor,
                       dctr: dctr,
@@ -93,7 +93,7 @@ class _customUserPageState extends State<customUserPage> {
                   }
                 }
               } else {
-                return (registerPage(
+                return (RegisterScreen(
                   uid: FirebaseAuth.instance.currentUser!.uid,
                   fun: endedRegister,
                   phoneNumber:
@@ -103,7 +103,7 @@ class _customUserPageState extends State<customUserPage> {
             },
           );
         } else
-          return (customPage());
+          return (customScreen());
       },
     );
   }

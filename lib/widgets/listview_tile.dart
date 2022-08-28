@@ -28,7 +28,7 @@ class _ListViewTileState extends State<ListViewTile> {
           const SizedBox(
             width: 10,
           ),
-          NewButton(
+          MyButton(
             icon: "💊",
             description: "All",
             isClicked: (toggledDescription == "All"),
@@ -37,7 +37,7 @@ class _ListViewTileState extends State<ListViewTile> {
           const SizedBox(
             width: 10,
           ),
-          NewButton(
+          MyButton(
             icon: "💗",
             description: "Cardiology",
             isClicked: (toggledDescription == "Cardiology"),
@@ -46,7 +46,7 @@ class _ListViewTileState extends State<ListViewTile> {
           const SizedBox(
             width: 10,
           ),
-          NewButton(
+          MyButton(
             icon: "🧠",
             description: "Neurology",
             isClicked: (toggledDescription == "Neurology"),
@@ -55,7 +55,7 @@ class _ListViewTileState extends State<ListViewTile> {
           const SizedBox(
             width: 10,
           ),
-          NewButton(
+          MyButton(
             icon: "🦶",
             description: "Orthopedy",
             isClicked: (toggledDescription == "Orthopedy"),
@@ -70,13 +70,13 @@ class _ListViewTileState extends State<ListViewTile> {
   }
 }
 
-class NewButton extends StatefulWidget {
+class MyButton extends StatefulWidget {
   String icon;
   String description;
   bool isClicked;
   final Function(String) func;
 
-  NewButton(
+  MyButton(
       {Key? key,
       required this.icon,
       required this.description,
@@ -85,10 +85,10 @@ class NewButton extends StatefulWidget {
       : super(key: key);
 
   @override
-  State<NewButton> createState() => _NewButtonState();
+  State<MyButton> createState() => _MyButtonState();
 }
 
-class _NewButtonState extends State<NewButton> {
+class _MyButtonState extends State<MyButton> {
   @override
   Widget build(BuildContext context) {
     return Container(

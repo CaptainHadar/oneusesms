@@ -2,16 +2,16 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class smsPage extends StatefulWidget {
+class SmsScreen extends StatefulWidget {
   final Function(String) onChange;
 
-  smsPage({Key? key, required this.onChange}) : super(key: key);
+  SmsScreen({Key? key, required this.onChange}) : super(key: key);
 
   @override
-  State<smsPage> createState() => _smsLoginpage();
+  State<SmsScreen> createState() => _smsLoginScreen();
 }
 
-class _smsLoginpage extends State<smsPage> {
+class _smsLoginScreen extends State<SmsScreen> {
   String currentNumber = '';
 
   void updateOnChange() {
@@ -29,7 +29,7 @@ class _smsLoginpage extends State<smsPage> {
     return Scaffold(
         backgroundColor: Colors.grey[350],
         appBar: AppBar(
-          title: const Text("smsLogin"),
+          title: const Text("Login Screen!"),
         ),
         body: Form(
           child: Column(
@@ -69,19 +69,19 @@ class _smsLoginpage extends State<smsPage> {
   }
 }
 
-class enterVerifyCode extends StatefulWidget {
+class EnterVerifyCode extends StatefulWidget {
   String phone;
 
   final Function(int) moveRoute;
 
-  enterVerifyCode({Key? key, required this.phone, required this.moveRoute})
+  EnterVerifyCode({Key? key, required this.phone, required this.moveRoute})
       : super(key: key);
 
   @override
-  State<enterVerifyCode> createState() => _enterVerifyCodeState();
+  State<EnterVerifyCode> createState() => _EnterVerifyCodeState();
 }
 
-class _enterVerifyCodeState extends State<enterVerifyCode> {
+class _EnterVerifyCodeState extends State<EnterVerifyCode> {
   TextEditingController mos = TextEditingController();
   final GlobalKey<ScaffoldState> _scaffoldkey = GlobalKey<ScaffoldState>();
   String? _verificationCode;

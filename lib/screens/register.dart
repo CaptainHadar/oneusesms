@@ -4,20 +4,20 @@ import 'package:oneusesms/widgets/listview_tile.dart';
 import 'package:oneusesms/models/my_user.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import 'login_pages.dart';
+import 'login.dart';
 
 
-class registerPage extends StatefulWidget {
+class RegisterScreen extends StatefulWidget {
   String uid;
   Function fun;
   String phoneNumber;
-  registerPage({Key? key, required this.uid, required this.fun, required this.phoneNumber}) : super(key: key);
+  RegisterScreen({Key? key, required this.uid, required this.fun, required this.phoneNumber}) : super(key: key);
 
   @override
-  State<registerPage> createState() => _registerPageState();
+  State<RegisterScreen> createState() => _RegisterScreenState();
 }
 
-class _registerPageState extends State<registerPage> {
+class _RegisterScreenState extends State<RegisterScreen> {
   String current = "Male";
 
   TextEditingController firstName = TextEditingController();
@@ -36,9 +36,9 @@ class _registerPageState extends State<registerPage> {
       body: SingleChildScrollView( child: Center(
         child: Column(
           children: [
-            registerForm(form: firstName, lText: "First Name"),
-            registerForm(form: lastName, lText: "Last Name"),
-            registerForm(form: city, lText: "City"),
+            RegisterForm(form: firstName, lText: "First Name"),
+            RegisterForm(form: lastName, lText: "Last Name"),
+            RegisterForm(form: city, lText: "City"),
             SizedBox(
               height: 10,
             ),
@@ -46,7 +46,7 @@ class _registerPageState extends State<registerPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  NewButton(
+                  MyButton(
                     icon: "♂",
                     description: "Male",
                     func: toggleGender,
@@ -55,7 +55,7 @@ class _registerPageState extends State<registerPage> {
                   SizedBox(
                     width: 10,
                   ),
-                  NewButton(
+                  MyButton(
                     icon: "♀",
                     description: "Female",
                     func: toggleGender,
@@ -118,11 +118,11 @@ class _registerPageState extends State<registerPage> {
 }
 
 
-class registerForm extends StatelessWidget {
+class RegisterForm extends StatelessWidget {
   TextEditingController form;
   String lText;
 
-  registerForm({Key? key, required this.form, required this.lText})
+  RegisterForm({Key? key, required this.form, required this.lText})
       : super(key: key);
 
   @override
@@ -148,34 +148,34 @@ class registerForm extends StatelessWidget {
   }
 }
 
-class customPage extends StatefulWidget {
-  const customPage({Key? key}) : super(key: key);
+class customScreen extends StatefulWidget {
+  const customScreen({Key? key}) : super(key: key);
 
   @override
-  State<customPage> createState() => _customPageState();
+  State<customScreen> createState() => _customScreenState();
 }
 
-class _customPageState extends State<customPage> {
+class _customScreenState extends State<customScreen> {
   int isLogin = 0;
   String phoneNumber = '';
 
   @override
   Widget build(BuildContext context) {
     if (isLogin == 0) {
-      return (smsPage(
+      return (SmsScreen(
         onChange: toggle,
       ));
     } else {
-      return (enterVerifyCode(
+      return (EnterVerifyCode(
         phone: phoneNumber,
-        moveRoute: setPageCount,
+        moveRoute: setScreenCount,
       ));
     }
   }
 
-  void setPageCount(int currentPageNum) {
+  void setScreenCount(int currentScreenNum) {
     setState(() {
-      isLogin = currentPageNum;
+      isLogin = currentScreenNum;
     });
   }
 

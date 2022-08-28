@@ -6,16 +6,16 @@ import '../widgets/listview_tile.dart';
 import '../widgets/upcoming_schedule_tile.dart';
 import '../models/my_user.dart';
 
-class MyHomePage extends StatefulWidget {
+class MyHomeScreen extends StatefulWidget {
   final MyUser usr;
 
-  MyHomePage({Key? key, required this.usr}) : super(key: key);
+  MyHomeScreen({Key? key, required this.usr}) : super(key: key);
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MyHomeScreen> createState() => _MyHomeScreenState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomeScreenState extends State<MyHomeScreen> {
   String toggled = 'All';
   String searchField = '';
 
@@ -145,7 +145,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   Container(
                     height: 160,
                     width: MediaQuery.of(context).size.width - 40,
-                    child: databaseusage(
+                    child: Databaseusage(
                       buttonStatus: toggled,
                       searchField: searchField,
                       isAdminEdit: false,

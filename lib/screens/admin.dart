@@ -3,7 +3,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:oneusesms/screens/register_page.dart';
+import 'package:oneusesms/screens/register.dart';
 import '../models/doctor.dart';
 import '../models/my_user.dart';
 import '../utils/clock.dart';
@@ -11,19 +11,19 @@ import '../utils/database_usage.dart';
 import '../utils/upload_pictures.dart';
 import '../widgets/listview_tile.dart';
 
-class adminPage extends StatefulWidget {
+class AdminScreen extends StatefulWidget {
   MyUser currentAdmin;
   Function fun;
   Function editFun;
   Function deleteFun;
-  adminPage({Key? key, required this.currentAdmin, required this.fun, required this.editFun, required this.deleteFun})
+  AdminScreen({Key? key, required this.currentAdmin, required this.fun, required this.editFun, required this.deleteFun})
       : super(key: key);
 
   @override
-  State<adminPage> createState() => _adminPageState();
+  State<AdminScreen> createState() => _AdminScreenState();
 }
 
-class _adminPageState extends State<adminPage> {
+class _AdminScreenState extends State<AdminScreen> {
   TextEditingController currentSearch = TextEditingController();
   String searchField = '';
   String toggled = 'All';
@@ -133,7 +133,7 @@ class _adminPageState extends State<adminPage> {
                 Container(
                   height: 160,
                   width: MediaQuery.of(context).size.width - 40,
-                  child: databaseusage(
+                  child: Databaseusage(
                     buttonStatus: toggled,
                     searchField: searchField,
                     isAdminEdit: true,
@@ -150,12 +150,12 @@ class _adminPageState extends State<adminPage> {
   }
 }
 
-class addDoctorPage extends StatefulWidget {
+class AddDoctorScreen extends StatefulWidget {
   Function fun;
   MyUser currentAdmin;
   Doctor? dctr;
   bool didDelete;
-  addDoctorPage(
+  AddDoctorScreen(
       {Key? key,
         required this.currentAdmin,
         required this.fun,
@@ -164,10 +164,10 @@ class addDoctorPage extends StatefulWidget {
       : super(key: key);
 
   @override
-  State<addDoctorPage> createState() => _addDoctorPageState();
+  State<AddDoctorScreen> createState() => _AddDoctorScreenState();
 }
 
-class _addDoctorPageState extends State<addDoctorPage> {
+class _AddDoctorScreenState extends State<AddDoctorScreen> {
   final Storage storage = Storage();
   bool didUpload = false;
   bool deleteButton = false;
@@ -271,7 +271,7 @@ class _addDoctorPageState extends State<addDoctorPage> {
     List<TimeOfDay> today = currentSchedule.elementAt(getTimesInDay() - 1);
     List<Widget> lst = [];
     for (int i = 0; i < today.length; i+=2) {
-      lst.add(timeRows(placeInList: i,firstTime: today.elementAt(i),secondTime: today.elementAt(i+1),deleteButton: deleteButton,fun: deleteTimes,));
+      lst.add(TimeRows(placeInList: i,firstTime: today.elementAt(i),secondTime: today.elementAt(i+1),deleteButton: deleteButton,fun: deleteTimes,));
     }
     return Container(
       child: Column(
@@ -289,13 +289,13 @@ class _addDoctorPageState extends State<addDoctorPage> {
       tmp = [];
       today = currentSchedule.elementAt(j - 1);
       for (int i = 0; i < today.length; i += 2) {
-        if(today.length - 2 != i) tmp.add(timeRows(placeInList: i,
+        if(today.length - 2 != i) tmp.add(TimeRows(placeInList: i,
           firstTime: today.elementAt(i),
           secondTime: today.elementAt(i + 1),
           deleteButton: deleteButton,
           fun: deleteTimes,).getString() + ", ");
         else
-          tmp.add(timeRows(placeInList: i,
+          tmp.add(TimeRows(placeInList: i,
             firstTime: today.elementAt(i),
             secondTime: today.elementAt(i + 1),
             deleteButton: deleteButton,
@@ -335,9 +335,9 @@ class _addDoctorPageState extends State<addDoctorPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              registerForm(form: name, lText: "Name"),
-              registerForm(form: reviews, lText: "Reviews (Optional)"),
-              registerForm(
+              RegisterForm(form: name, lText: "Name"),
+              RegisterForm(form: reviews, lText: "Reviews (Optional)"),
+              RegisterForm(
                   form: rating, lText: "Number Of Rating Stars (Optional)"),
               ElevatedButton(
                   onPressed: () async {

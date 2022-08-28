@@ -7,24 +7,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../models/doctor.dart';
-import '../screens/main.dart';
+import '../main.dart';
 import '../widgets/my_container.dart';
 
-class databaseusage extends StatefulWidget {
+class Databaseusage extends StatefulWidget {
   final String buttonStatus;
   final String searchField;
   final bool isAdminEdit;
   final Function fun;
   final Function deleteFun;
-   databaseusage(
+   Databaseusage(
       {Key? key, required this.buttonStatus, required this.searchField, required this.isAdminEdit, required this.fun, required this.deleteFun})
       : super(key: key);
 
   @override
-  State<databaseusage> createState() => _databaseusageState();
+  State<Databaseusage> createState() => _DatabaseusageState();
 }
 
-class _databaseusageState extends State<databaseusage> {
+class _DatabaseusageState extends State<Databaseusage> {
   Widget displayDoctors(List<Doctor> doctorList) => ListView.builder(
         scrollDirection: Axis.vertical,
         itemCount: doctorList.length,
