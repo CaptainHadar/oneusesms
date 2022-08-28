@@ -1,11 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SmsScreen extends StatefulWidget {
   final Function(String) onChange;
 
-  SmsScreen({Key? key, required this.onChange}) : super(key: key);
+  const SmsScreen({Key? key, required this.onChange}) : super(key: key);
 
   @override
   State<SmsScreen> createState() => _SmsScreenState();
@@ -43,10 +42,11 @@ class _SmsScreenState extends State<SmsScreen> {
                   } else if (value.isEmpty) {
                     return "You need to fill this";
                   }
+                  return null;
                 },
                 controller: TextEditingController(),
                 decoration: const InputDecoration(
-                  icon: const Icon(Icons.person),
+                  icon: Icon(Icons.person),
                   fillColor: Colors.cyan,
                   filled: true,
                   hintText: '+972 50-123-4567',
@@ -83,7 +83,6 @@ class EnterVerifyCode extends StatefulWidget {
 
 class _EnterVerifyCodeState extends State<EnterVerifyCode> {
   TextEditingController mos = TextEditingController();
-  final GlobalKey<ScaffoldState> _scaffoldkey = GlobalKey<ScaffoldState>();
   String? _verificationCode;
 
   _verifyPhone() async {
@@ -112,7 +111,7 @@ class _EnterVerifyCodeState extends State<EnterVerifyCode> {
             _verificationCode = verificationID;
           });
         },
-        timeout: Duration(seconds: 120));
+        timeout: const Duration(seconds: 120));
   }
 
   @override

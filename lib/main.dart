@@ -5,6 +5,7 @@ import 'package:oneusesms/models/doctor.dart';
 import 'package:oneusesms/screens/register.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:oneusesms/models/my_user.dart';
+import 'package:oneusesms/utils/register_screen_picker.dart';
 import 'screens/admin.dart';
 import 'screens/home.dart';
 
@@ -101,7 +102,7 @@ class _CustomUserScreenState extends State<CustomUserScreen> {
             },
           );
         } else {
-          return (const CurrentRegisterScreen());
+          return (const RegisterScreenPicker());
         }
       },
     );

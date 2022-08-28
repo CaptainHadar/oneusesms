@@ -5,6 +5,7 @@ import 'package:oneusesms/models/my_user.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../widgets/category_button.dart';
+import '../widgets/register_text_field_form.dart';
 import 'login.dart';
 
 
@@ -115,77 +116,5 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
 
 
-  }
-}
-
-
-class RegisterForm extends StatelessWidget {
-  TextEditingController form;
-  String lText;
-
-  RegisterForm({Key? key, required this.form, required this.lText})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(4),
-      child: Container(
-        width: MediaQuery.of(context).size.width - 30,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
-          color: Color(0xff1c242c),
-        ),
-        child: TextFormField(
-          controller: form,
-          decoration: InputDecoration(
-            icon: const Icon(Icons.person),
-            filled: false,
-            labelText: lText,
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class CurrentRegisterScreen extends StatefulWidget {
-  const CurrentRegisterScreen({Key? key}) : super(key: key);
-
-  @override
-  State<CurrentRegisterScreen> createState() => _CurrentRegisterScreenState();
-}
-
-class _CurrentRegisterScreenState extends State<CurrentRegisterScreen> {
-  int isLogin = 0;
-  String phoneNumber = '';
-
-  @override
-  Widget build(BuildContext context) {
-    if (isLogin == 0) {
-      return (SmsScreen(
-        onChange: toggle,
-      ));
-    } else {
-      return (EnterVerifyCode(
-        phone: phoneNumber,
-        moveRoute: setScreenCount,
-      ));
-    }
-  }
-
-  void setScreenCount(int currentScreenNum) {
-    setState(() {
-      isLogin = currentScreenNum;
-    });
-  }
-
-  void toggle(String currentNumber) {
-    setState(() {
-      if (currentNumber.isNotEmpty) {
-        phoneNumber = currentNumber;
-        isLogin++;
-      }
-    });
   }
 }
