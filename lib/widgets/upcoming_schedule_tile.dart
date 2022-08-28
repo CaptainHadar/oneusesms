@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-class UpcommingScheduleTile extends StatefulWidget{
-  const UpcommingScheduleTile({Key? key}) : super(key: key);
+class UpcomingScheduleTile extends StatefulWidget{
+  const UpcomingScheduleTile({Key? key}) : super(key: key);
 
   @override
-  State<UpcommingScheduleTile> createState() => _UpcommingScheduleTileState();
+  State<UpcomingScheduleTile> createState() => _UpcomingScheduleTileState();
 }
 
-class _UpcommingScheduleTileState extends State<UpcommingScheduleTile> {
+class _UpcomingScheduleTileState extends State<UpcomingScheduleTile> {
   @override
   Widget build(BuildContext context){
     return Row(

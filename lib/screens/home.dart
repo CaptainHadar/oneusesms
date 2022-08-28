@@ -6,16 +6,16 @@ import '../widgets/listview_tile.dart';
 import '../widgets/upcoming_schedule_tile.dart';
 import '../models/my_user.dart';
 
-class MyHomeScreen extends StatefulWidget {
+class HomeScreen extends StatefulWidget {
   final MyUser usr;
 
-  MyHomeScreen({Key? key, required this.usr}) : super(key: key);
+  HomeScreen({Key? key, required this.usr}) : super(key: key);
 
   @override
-  State<MyHomeScreen> createState() => _MyHomeScreenState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _MyHomeScreenState extends State<MyHomeScreen> {
+class _HomeScreenState extends State<HomeScreen> {
   String toggled = 'All';
   String searchField = '';
 
@@ -115,7 +115,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                 ),
               ),
               SizedBox(height: 5),
-              UpcommingScheduleTile(),
+              UpcomingScheduleTile(),
               SizedBox(height: 7.9),
               Text(
                 "  Talk to a Dcotor",
@@ -145,7 +145,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                   Container(
                     height: 160,
                     width: MediaQuery.of(context).size.width - 40,
-                    child: Databaseusage(
+                    child: DatabaseUsage(
                       buttonStatus: toggled,
                       searchField: searchField,
                       isAdminEdit: false,

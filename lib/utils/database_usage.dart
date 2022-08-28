@@ -10,21 +10,21 @@ import '../models/doctor.dart';
 import '../main.dart';
 import '../widgets/my_container.dart';
 
-class Databaseusage extends StatefulWidget {
+class DatabaseUsage extends StatefulWidget {
   final String buttonStatus;
   final String searchField;
   final bool isAdminEdit;
   final Function fun;
   final Function deleteFun;
-   Databaseusage(
+   DatabaseUsage(
       {Key? key, required this.buttonStatus, required this.searchField, required this.isAdminEdit, required this.fun, required this.deleteFun})
       : super(key: key);
 
   @override
-  State<Databaseusage> createState() => _DatabaseusageState();
+  State<DatabaseUsage> createState() => _DatabaseUsageState();
 }
 
-class _DatabaseusageState extends State<Databaseusage> {
+class _DatabaseUsageState extends State<DatabaseUsage> {
   Widget displayDoctors(List<Doctor> doctorList) => ListView.builder(
         scrollDirection: Axis.vertical,
         itemCount: doctorList.length,
@@ -33,7 +33,7 @@ class _DatabaseusageState extends State<Databaseusage> {
           if ((doctor.specialty == widget.buttonStatus ||
                   widget.buttonStatus == 'All') &&
               doctor.name.contains(widget.searchField)) {
-            return MyContainer(
+            return DoctorCard(
             dctr: doctor,
             fun: widget.fun,
             deleteFun: widget.deleteFun,

@@ -16,7 +16,7 @@ class MyUser{
     required this.uid,
     required this.gender,
     required this.foundApp,
-     this.currentPermission = '0',
+     this.currentPermission = '0', // Permission 0 means regular user (no special permissions), Permission 1 means admin permissions.
   });
 
     static MyUser fromJson(json) => MyUser(

@@ -12,7 +12,7 @@ Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 
-  runApp(MaterialApp(home: CustomUserScreen()));
+  runApp(const MaterialApp(home: CustomUserScreen()));
 }
 
 class CustomUserScreen extends StatefulWidget {
@@ -38,7 +38,6 @@ class _CustomUserScreenState extends State<CustomUserScreen> {
 
   void editDoctor(Doctor currentDoctor) {
     setState(() {
-      if(currentDoctor != null)
       dctr = currentDoctor;
       isAddingDoctor = !isAddingDoctor;
     });
@@ -61,7 +60,6 @@ class _CustomUserScreenState extends State<CustomUserScreen> {
                 .collection("users")
                 .doc(FirebaseAuth.instance.currentUser!.uid)
                 .get();
-            print(doc.id);
             if (doc.exists) {
               yield MyUser.fromJson(doc.data());
             }
@@ -72,7 +70,7 @@ class _CustomUserScreenState extends State<CustomUserScreen> {
             builder: (context, snapshot1) {
               if (snapshot1.hasData) {
                 if ((snapshot1.data as MyUser).currentPermission == '0') {
-                  return (MyHomeScreen(
+                  return (HomeScreen(
                     usr: snapshot1.data as MyUser,
                   ));
                 } else {
@@ -102,8 +100,9 @@ class _CustomUserScreenState extends State<CustomUserScreen> {
               }
             },
           );
-        } else
-          return (customScreen());
+        } else {
+          return (const CurrentRegisterScreen());
+        }
       },
     );
   }

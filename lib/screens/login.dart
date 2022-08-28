@@ -8,10 +8,10 @@ class SmsScreen extends StatefulWidget {
   SmsScreen({Key? key, required this.onChange}) : super(key: key);
 
   @override
-  State<SmsScreen> createState() => _smsLoginScreen();
+  State<SmsScreen> createState() => _SmsScreenState();
 }
 
-class _smsLoginScreen extends State<SmsScreen> {
+class _SmsScreenState extends State<SmsScreen> {
   String currentNumber = '';
 
   void updateOnChange() {

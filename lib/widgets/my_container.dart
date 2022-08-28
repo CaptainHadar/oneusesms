@@ -5,12 +5,12 @@ import 'package:flutter/rendering.dart';
 import '../models/doctor.dart';
 import '../utils/upload_pictures.dart';
 
-class MyContainer extends StatefulWidget {
+class DoctorCard extends StatefulWidget {
   Doctor dctr;
   bool isAdminEdit;
   Function fun;
   Function deleteFun;
-  MyContainer(
+  DoctorCard(
       {Key? key,
         required this.dctr,
         required this.isAdminEdit,
@@ -19,10 +19,10 @@ class MyContainer extends StatefulWidget {
       : super(key: key);
 
   @override
-  State<MyContainer> createState() => _MyContainer();
+  State<DoctorCard> createState() => _DoctorCardState();
 }
 
-class _MyContainer extends State<MyContainer> {
+class _DoctorCardState extends State<DoctorCard> {
   bool isExpanded = false;
   String getStars(String starsnum) {
     String stars = "";

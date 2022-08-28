@@ -4,6 +4,7 @@ import 'package:oneusesms/widgets/listview_tile.dart';
 import 'package:oneusesms/models/my_user.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+import '../widgets/category_button.dart';
 import 'login.dart';
 
 
@@ -46,7 +47,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  MyButton(
+                  CategoryButton(
                     icon: "♂",
                     description: "Male",
                     func: toggleGender,
@@ -55,7 +56,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   SizedBox(
                     width: 10,
                   ),
-                  MyButton(
+                  CategoryButton(
                     icon: "♀",
                     description: "Female",
                     func: toggleGender,
@@ -148,14 +149,14 @@ class RegisterForm extends StatelessWidget {
   }
 }
 
-class customScreen extends StatefulWidget {
-  const customScreen({Key? key}) : super(key: key);
+class CurrentRegisterScreen extends StatefulWidget {
+  const CurrentRegisterScreen({Key? key}) : super(key: key);
 
   @override
-  State<customScreen> createState() => _customScreenState();
+  State<CurrentRegisterScreen> createState() => _CurrentRegisterScreenState();
 }
 
-class _customScreenState extends State<customScreen> {
+class _CurrentRegisterScreenState extends State<CurrentRegisterScreen> {
   int isLogin = 0;
   String phoneNumber = '';
 

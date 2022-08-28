@@ -133,7 +133,7 @@ class _AdminScreenState extends State<AdminScreen> {
                 Container(
                   height: 160,
                   width: MediaQuery.of(context).size.width - 40,
-                  child: Databaseusage(
+                  child: DatabaseUsage(
                     buttonStatus: toggled,
                     searchField: searchField,
                     isAdminEdit: true,
