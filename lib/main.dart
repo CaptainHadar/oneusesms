@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:oneusesms/models/doctor.dart';
+import 'package:oneusesms/screens/create_or_edit_doctor.dart';
 import 'package:oneusesms/screens/register.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:oneusesms/models/my_user.dart';

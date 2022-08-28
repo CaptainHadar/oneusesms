@@ -8,7 +8,7 @@ import 'package:flutter/services.dart';
 
 import '../models/doctor.dart';
 import '../main.dart';
-import '../widgets/my_container.dart';
+import '../widgets/doctor_card.dart';
 
 class DatabaseUsage extends StatefulWidget {
   final String buttonStatus;

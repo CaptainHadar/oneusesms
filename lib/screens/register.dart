@@ -6,7 +6,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../widgets/category_button.dart';
 import '../widgets/register_text_field_form.dart';
-import 'login.dart';
+import 'first_login.dart';
 
 
 class RegisterScreen extends StatefulWidget {

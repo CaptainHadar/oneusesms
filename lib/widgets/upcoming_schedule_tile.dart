@@ -1,62 +1,17 @@
 import 'package:flutter/material.dart';
-class UpcomingScheduleTile extends StatefulWidget{
-  const UpcomingScheduleTile({Key? key}) : super(key: key);
 
-  @override
-  State<UpcomingScheduleTile> createState() => _UpcomingScheduleTileState();
-}
-
-class _UpcomingScheduleTileState extends State<UpcomingScheduleTile> {
-  @override
-  Widget build(BuildContext context){
-    return Row(
-      children: [
-        SizedBox(width: 15),
-        UpcomingScheduleContainer(
-          date: "📅 Sun - May 10, 1:00pm - 2:00pm",
-          imgUrl: "https://imgur.com/1CVohyf.png",
-          name: "Dr. Shilgiaoo Kashti",
-          practice: "General Practice",
-        ),
-        SizedBox(
-          width: 15,
-        ),
-        ButtonBar(
-          alignment: MainAxisAlignment.center,
-          mainAxisSize: MainAxisSize.max,
-          buttonHeight: 110,
-          children: [
-            RaisedButton(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10)),
-              onPressed: () {},
-              color: Color(0xff2f2f2f),
-              child: Text(
-                "+",
-                style: TextStyle(
-                  fontSize: 35,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          ],
-        ),
-      ],
-    );
-  }
-}
-class UpcomingScheduleContainer extends StatefulWidget{
+class UpcomingScheduleCard extends StatefulWidget{
   String name;
   String practice;
   String imgUrl;
   String date;
 
-  UpcomingScheduleContainer({Key? key, required this.name, required this.practice, required this.date, required this.imgUrl}) : super(key: key);
+  UpcomingScheduleCard({Key? key, required this.name, required this.practice, required this.date, required this.imgUrl}) : super(key: key);
   @override
-  State<UpcomingScheduleContainer> createState() => _UpcomingScheduleContainerState();
+  State<UpcomingScheduleCard> createState() => _UpcomingScheduleCardState();
 }
 
-class _UpcomingScheduleContainerState extends State<UpcomingScheduleContainer> {
+class _UpcomingScheduleCardState extends State<UpcomingScheduleCard> {
   @override
   Widget build(BuildContext context) {
     return Container(

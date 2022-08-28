@@ -1,10 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
 import '../utils/database_usage.dart';
 import '../widgets/listview_tile.dart';
-import '../widgets/upcoming_schedule_tile.dart';
 import '../models/my_user.dart';
+import '../widgets/upcoming_schedule_card.dart';
 
 class HomeScreen extends StatefulWidget {
   final MyUser usr;
@@ -115,7 +114,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               SizedBox(height: 5),
-              UpcomingScheduleTile(),
+              UpcomingSchedulePremadeTile(),
               SizedBox(height: 7.9),
               Text(
                 "  Talk to a Dcotor",

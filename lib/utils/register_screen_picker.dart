@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../screens/login.dart';
+import '../screens/first_login.dart';
+import '../screens/second_login.dart';
 
 class RegisterScreenPicker extends StatefulWidget {
   const RegisterScreenPicker({Key? key}) : super(key: key);
